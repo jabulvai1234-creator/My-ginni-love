@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Ginni 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+overflow:hidden;
+height:100vh;
+background:linear-gradient(135deg,#09000d,#2b001f,#ff4f95);
+color:white;
+}
+
+/* PAGE */
+
+.page{
+position:absolute;
+width:100%;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+padding:20px;
+text-align:center;
+transition:1s;
+}
+
+.hidden{
+opacity:0;
+pointer-events:none;
+transform:scale(1.2);
+}
+
+/* CARD */
+
+.card{
+width:90%;
+max-width:430px;
+padding:28px;
+border-radius:35px;
+background:rgba(255,255,255,0.10);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,0.25);
+box-shadow:0 10px 40px rgba(0,0,0,0.4);
+animation:fade 1.5s ease;
+}
+
+/* IMAGE SLIDER */
+
+.slider{
+position:relative;
+width:280px;
+height:320px;
+margin:auto;
+overflow:hidden;
+border-radius:30px;
+border:5px solid white;
+box-shadow:0 15px 35px rgba(0,0,0,0.4);
+background:white;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.slide{
+position:absolute;
+max-width:100%;
+max-height:100%;
+width:auto;
+height:auto;
+object-fit:contain;
+opacity:0;
+animation:slideShow 12s infinite;
+}
+
+.slide:nth-child(1){animation-delay:0s;}
+.slide:nth-child(2){animation-delay:4s;}
+.slide:nth-child(3){animation-delay:8s;}
+
+@keyframes slideShow{
+0%{opacity:0;}
+10%{opacity:1;}
+30%{opacity:1;}
+40%{opacity:0;}
+100%{opacity:0;}
+}
+
+/* PHOTO */
+
+.photo{
+width:280px;
+height:320px;
+max-width:100%;
+max-height:100%;
+object-fit:contain;
+background:white;
+padding:5px;
+border-radius:30px;
+border:5px solid white;
+box-shadow:0 15px 35px rgba(0,0,0,0.4);
+animation:float 4s infinite ease-in-out;
+margin-bottom:20px;
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-12px);}
+100%{transform:translateY(0);}
+}
+
+/* HEART */
+
+.heart{
+font-size:120px;
+cursor:pointer;
+animation:beat 1s infinite;
+}
+
+@keyframes beat{
+0%{transform:scale(1);}
+50%{transform:scale(1.2);}
+100%{transform:scale(1);}
+}
+
+/* TEXT */
+
+.title{
+font-size:38px;
+font-weight:700;
+margin-top:20px;
+text-shadow:0 0 20px white;
+}
+
+.sub{
+font-size:18px;
+line-height:1.8;
+margin-top:15px;
+}
+
+/* BUTTON */
+
+.btn{
+margin-top:25px;
+padding:14px 35px;
+border:none;
+border-radius:50px;
+background:white;
+color:#ff4f95;
+font-size:18px;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.08);
+}
+
+/* FLOATING HEARTS */
+
+.hearts span{
+position:absolute;
+bottom:-100px;
+font-size:28px;
+animation:up 10s linear infinite;
+opacity:0.8;
+}
+
+.hearts span:nth-child(1){left:10%;animation-delay:0s;}
+.hearts span:nth-child(2){left:30%;animation-delay:2s;}
+.hearts span:nth-child(3){left:50%;animation-delay:4s;}
+.hearts span:nth-child(4){left:70%;animation-delay:1s;}
+.hearts span:nth-child(5){left:90%;animation-delay:3s;}
+
+@keyframes up{
+0%{
+transform:translateY(0);
+opacity:0;
+}
+50%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+
+/* FLOWERS */
+
+.flowers span{
+position:absolute;
+top:-50px;
+font-size:24px;
+animation:fall 10s linear infinite;
+}
+
+.flowers span:nth-child(1){left:10%;animation-delay:0s;}
+.flowers span:nth-child(2){left:35%;animation-delay:2s;}
+.flowers span:nth-child(3){left:60%;animation-delay:5s;}
+.flowers span:nth-child(4){left:85%;animation-delay:1s;}
+
+@keyframes fall{
+0%{
+transform:translateY(-10vh);
+opacity:0;
+}
+50%{
+opacity:1;
+}
+100%{
+transform:translateY(120vh);
+opacity:0;
+}
+}
+
+/* TYPING */
+
+.typing{
+overflow:hidden;
+white-space:nowrap;
+border-right:3px solid white;
+width:0;
+animation:typing 4s steps(40,end) forwards,
+blink .8s infinite;
+margin:auto;
+}
+
+@keyframes typing{
+from{width:0}
+to{width:100%}
+}
+
+@keyframes blink{
+50%{
+border-color:transparent;
+}
+}
+
+/* MUSIC */
+
+.music{
+position:absolute;
+top:20px;
+right:20px;
+width:55px;
+height:55px;
+border:none;
+border-radius:50%;
+background:white;
+color:#ff4f95;
+font-size:22px;
+cursor:pointer;
+}
+
+/* QUOTE */
+
+.quote{
+margin-top:18px;
+font-style:italic;
+opacity:0.9;
+}
+
+/* FADE */
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+
+<audio id="song" autoplay loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=romantic-love-112199.mp3" type="audio/mp3">
+</audio>
+
+<button class="music" onclick="musicToggle()">🎵</button>
+
+<!-- HEARTS -->
+
+<div class="hearts">
+<span>💖</span>
+<span>💕</span>
+<span>💘</span>
+<span>💞</span>
+<span>💓</span>
+</div>
+
+<!-- FLOWERS -->
+
+<div class="flowers">
+<span>🌸</span>
+<span>🌷</span>
+<span>💮</span>
+<span>🌺</span>
+</div>
+
+<!-- PAGE 1 -->
+
+<div class="page" id="page1">
+
+<div class="card">
+
+<div class="heart" onclick="nextPage(1)">
+❤️
+</div>
+
+<div class="title">
+I Love You 💖
+</div>
+
+<div class="sub typing">
+Tap the love to continue ✨
+</div>
+
+</div>
+
+</div>
+
+<!-- PAGE 2 -->
+
+<div class="page hidden" id="page2">
+
+<div class="card">
+
+<div class="slider">
+
+<img src="lokki.jpg" class="slide">
+<img src="lokki.jpg" class="slide">
+<img src="lokki.jpg" class="slide">
+
+</div>
+
+<div class="title">
+My Ginni 💕
+</div>
+
+<div class="sub">
+Tumi amar best friend na sudhu...  
+Tumi amar priyo manus 🌸
+</div>
+
+<div class="quote">
+“Some people become home for the heart...” 🥺
+</div>
+
+<button class="btn" onclick="nextPage(2)">
+Next 💌
+</button>
+
+</div>
+
+</div>
+
+<!-- PAGE 3 -->
+
+<div class="page hidden" id="page3">
+
+<div class="card">
+
+<img src="lokki.jpg" class="photo">
+
+<div class="title">
+Secret Love Letter 💖
+</div>
+
+<div class="sub">
+Tomar hashi amar shanti...  
+Tomar maya amar favorite feeling ✨  
+
+Ami tomake valobese  
+Ginni bole daki 🌸
+</div>
+
+<div class="quote">
+“You are the softest part of my life...” 💕
+</div>
+
+<button class="btn" onclick="nextPage(3)">
+Continue 🌷
+</button>
+
+</div>
+
+</div>
+
+<!-- PAGE 4 -->
+
+<div class="page hidden" id="page4">
+
+<div class="card">
+
+<div class="title">
+Since We Met ⏳
+</div>
+
+<div class="sub" id="counter">
+Loading...
+</div>
+
+<div class="quote">
+“Every moment with you feels magical...” ✨
+</div>
+
+<button class="btn" onclick="nextPage(4)">
+Next 💞
+</button>
+
+</div>
+
+</div>
+
+<!-- PAGE 5 -->
+
+<div class="page hidden" id="page5">
+
+<div class="card">
+
+<div class="title">
+Best Friend Memories 🫶
+</div>
+
+<div class="sub">
+Late night talks 🌙  
+Cute fights 😄  
+Endless care 💖  
+And countless beautiful memories ✨
+</div>
+
+<div class="quote">
+“Best friendships sometimes become true love...” 🥺
+</div>
+
+<button class="btn" onclick="nextPage(5)">
+Last Page 🌸
+</button>
+
+</div>
+
+</div>
+
+<!-- PAGE 6 -->
+
+<div class="page hidden" id="page6">
+
+<div class="card">
+
+<div class="slider">
+
+<img src="lokki.jpg" class="slide">
+<img src="lokki.jpg" class="slide">
+<img src="lokki.jpg" class="slide">
+
+</div>
+
+<div class="title">
+Stay With Me Forever Ginni 💖
+</div>
+
+<div class="sub">
+Tumi amar valobasha...  
+Amar moner sobcheye special manus 🌸
+</div>
+
+<div class="quote">
+“I found my peace in you...” 💞
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function nextPage(page){
+
+document.getElementById("page"+page).classList.add("hidden");
+
+document.getElementById("page"+(page+1)).classList.remove("hidden");
+
+}
+
+/* MUSIC */
+
+function musicToggle(){
+
+let song=document.getElementById("song");
+
+if(song.paused){
+song.play();
+}
+else{
+song.pause();
+}
+
+}
+
+/* COUNTER */
+
+let startDate=new Date("2025-01-01");
+
+function updateCounter(){
+
+let now=new Date();
+
+let diff=now-startDate;
+
+let days=Math.floor(diff/(1000*60*60*24));
+
+document.getElementById("counter").innerHTML=
+days+" Days of Love & Friendship 💕";
+
+}
+
+setInterval(updateCounter,1000);
+
+</script>
+
+</body>
+</html>
